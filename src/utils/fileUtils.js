@@ -1,3 +1,5 @@
+import fs from 'fs'
+
 /**
  * lee y devuelve el contenido de un archivo como texto en 'utf-8'
  * @param {string} ruta relativa al directorio del proyecto
@@ -17,7 +19,7 @@ function escribirTextoEnArchivo(ruta, texto, shouldCreateIfNotExists) {
     const fileExists = fs.existsSync(ruta);
 
     if (fileExists || shouldCreateIfNotExists) {
-      fs.writeFileSync(file, texto, "utf-8");
+      fs.writeFileSync(ruta, texto, "utf-8");
     } else {
       throw new Error("El archivo no existe.");
     }
